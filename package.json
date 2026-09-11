@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/Bondy17134/PROG2002_AS2_Kunanon/issues"
   },
-  "homepage": "https://github.com/Bondy17134/PROG2002_AS2_Kunanon#readme"
+  "homepage": "https://github.com/Bondy17134/PROG2002_AS2_Kunanon#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "mysql2": "^3.24.4"
+  }
 }
