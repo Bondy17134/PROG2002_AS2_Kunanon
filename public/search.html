@@ -25,5 +25,96 @@
                 <a class="nav-button" href="/search">Explore Event</a>
             </nav>
         </header>
+
+    <main>
+        <section class="inner-hero">
+            <p class="eyebrown">Discover your next opportunity</p>
+            <h1>Find charity event</h1>
+
+            <p>
+                Search upcoming events by date, location or category and 
+                connect with a cause that matter to you.
+            </p>
+        </section>
+
+        <section class="search-section">
+            <form class=""filter-form id="search-form">
+                <div class="form-field">
+                    <label for="event-date">Event date</label>
+
+                    <input
+                        type="date"
+                        id="event-date"
+                        name="date"
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="event-location">Location</label>
+
+                    <input
+                        type="text"
+                        id="event-location"
+                        name="location"
+                        placeholder="e.g. Southport"
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="event-category">Category</label>
+
+                    <select id="event-category" name="category">
+                        <option value="">All categories</option>
+                    </select>
+                </div>
+
+                <div class="filter-actions">
+                    <button class="primary-search-button" type="submit">
+                        Search Events
+                    </button>
+
+                    <button
+                        class="clear-button"
+                        id="clear-filters"
+                        type="button"
+                    >
+                        Clear Filters
+                    </button>
+                </div>
+            </form>
+
+            <div class="result-heading">
+                <div>
+                    <p class="section-label">Search results</p>
+                    <h2>Events for you</h2>
+                </div>
+            </div>
+
+            <p class="status-message" id="search-message" role="status">
+                Loading events...
+            </p>
+
+            <div
+                class="events-grid"
+                id="search-results"
+                aria-live="polite"
+            ></div>
+        </section>
+    </main>
+    <footer class="site-footer" id-contact>
+            <div>
+                <h2>Charity Event Junction</h2>
+
+                <p>
+                    Connecting people with causes that matter.
+                </p>
+            </div>
+
+            <div class="contact-details">
+                <p>Email:<strong>hello@charityeventjunction.com.au</strong></p>
+                <p><strong>Phone:</strong>(07) 555 0142</p>
+                <p><strong>Location:</strong>Gold Coast, Queensland</p>
+            </div>
+        </footer>
     </body>
 </html>
