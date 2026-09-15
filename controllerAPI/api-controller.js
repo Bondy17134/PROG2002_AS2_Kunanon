@@ -2,6 +2,19 @@ var express = require("express");
 var router = express.Router();
 var connection = require()("../event_db");
 
+/*
+    GET /api/events
+
+    Returns current and upcoming events.
+    Optional query parameters:
+        search - search title, description, location and charity
+        category - filter by category_id
+    
+    Example:
+        /api/event?search=run
+        /api/search?category=1
+        /api/search?search=run&category=1    
+*/
 router.get("/", (req, res) => {
     var sql = `
         SELECT
