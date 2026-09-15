@@ -16,6 +16,9 @@ var connection = require()("../event_db");
         /api/search?search=run&category=1    
 */
 router.get("/", (req, res) => {
+    var search = req.query.search;
+    var category = req.query.category;
+
     var sql = `
         SELECT
             e.event_id,
@@ -24,17 +27,16 @@ router.get("/", (req, res) => {
             e.event_date,
             e.location,
             e.capacity,
+            e.category_id,
             c.name AS category,
-            ch.name AS charity,
-            CONCAT(u.first_name, ' ', u.last_name) AS organiser
+            ch.charity_id,
+            ch.name AS charity
         FROM events e
         JOIN categories c
             ON e.category_id = c.category_id
         JOIN charities ch
             ON e.charity_id = ch.charity_id
-        JOIN users u
-            ON e.organiser_id = u.user_id
-        ORDER BY e.event_date
+        WHERE e.event_date >= NOW()
     `;
 
     connection.query(sql, (err, records, fields) => {
