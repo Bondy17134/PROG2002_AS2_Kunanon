@@ -52,3 +52,9 @@ a {
     border-radius: 999px;
     box-shadow: var(--shadow);
 }
+
+.brand{
+    color: var(--green-dark);
+    font-size: 1.05rem;
+    font-weight: 800;
+}
