@@ -7,9 +7,9 @@ var port = 3060;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var apiController = require("./controllerAPI/api-controller");
+var eventAPI = require("./controllerAPI/api-controller");
 
-app.use("/api", apiController);
+app.use("/api/events", eventAPI);
 
 app.listen(port, () => {
     console.log(`Server up and running on port ${port}`);

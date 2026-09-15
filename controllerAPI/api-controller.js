@@ -68,7 +68,7 @@ router.get("/", (req, res) => {
 
     sql += " ORDER BY e.event_date ASC";
 
-    connection.query(sql, (err, records) => {
+    connection.query(sql, value, (err, records) => {
         if (err) {
             console.error("Error while retrieving events:", err);
             return res.status(500).send({
@@ -84,7 +84,7 @@ router.get("/", (req, res) => {
 
     Returns detailed information for one event.    
 */
-router.get("/events/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     var eventId = req.params.id;
 
     if(isNaN(eventId)){
