@@ -74,3 +74,17 @@ a {
 .nav-links a:active {
     color: var(--green);
 }
+
+.nav-button,
+.primary-button,
+.outline-button {
+    display: inline-block;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.nav-button{
+    padding: 11px 20px;
+    color: var(--white);
+    background: var(--green);
+}
