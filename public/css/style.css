@@ -53,8 +53,13 @@ a {
     box-shadow: var(--shadow);
 }
 
-.brand{
+.brand {
     color: var(--green-dark);
     font-size: 1.05rem;
     font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
 }
