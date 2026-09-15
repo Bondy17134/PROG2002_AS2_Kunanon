@@ -18,6 +18,8 @@ var connection = require("../event_db");
 router.get("/", (req, res) => {
     var search = req.query.search;
     var category = req.query.category;
+    var date = req.query.date;
+    var location = req.query.location;
 
     var sql = `
         SELECT
@@ -54,6 +56,24 @@ router.get("/", (req, res) => {
         var searchValue = `%${search}%`;
 
         value.push(searchValue, searchValue, searchValue, searchValue);
+    }
+
+    if(date){
+        var validDate = /^\d{4}-\d{2}-\d{2}$/.test(date);
+
+        if(!validDate){
+            return res.status(400).send({
+                error: "Date must use YYYY-MM-DD format"
+            });
+        }
+
+        sql += " AND DATE(e.event_date) = ?";
+        value.push(date);
+    }
+
+    if(location){
+        sql += " AND e.location LIKE ?";
+        value.push(`%${location}%`);
     }
 
     if(category){
@@ -134,34 +154,6 @@ router.get("/:id", (req, res) => {
             });
         }
         res.status(200).send(records[0]);
-    });
-});
-
-/*
-    GET /api/categories
-
-    Returns all event categories for the search filther.   
-*/
-router.get("/", (req, res) => {
-    var sql = `
-        SELECT
-            category_id,
-            name,
-            description
-        FROM categories
-        ORDER BY name ASC
-    `;
-
-    connection.query(sql, (err, records) => {
-        if(err) {
-            console.error("Error retrieving categories: ", err);
-
-            return res.status(500).send({
-                error: "Unable to retrieve categories"
-            });
-        }
-
-        res.status(200).send(records);
     });
 });
 
