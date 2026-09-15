@@ -212,3 +212,58 @@ a {
     color: var(--green);
     font-weight: 800;
 }
+
+.events-section {
+    padding: 90px 7%;
+    background: var(--green-pale);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: 0 auto 36px;
+}
+
+.outline-button {
+    padding: 11px 20px;
+    border: 1px solid var(--green);
+    color: var(--green);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1180px;
+    margin: auto;
+}
+
+.status-message {
+    max-width: 1180px;
+    margin: 0 auto 24px;
+    color: var(--text-soft);
+}
+
+.event-card {
+    overflow: hidden;
+    background: var(--white);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(37, 69, 44, 0.18);
+}
+
+.event-card-visual {
+    display: flex;
+    align-items: flex-end;
+    min-height: 180px;
+    padding: 20px;
+    color: var(--white);
+    background: linear-gradient(135deg, #789b68, #2d5838);
+}
