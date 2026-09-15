@@ -276,3 +276,16 @@ a {
     color: rgba(255, 255, 255, 0.85);
     background: var(--green-dark);
 }
+
+.site-footer h2 {
+    margin-top: 0;
+    color: var(--white);
+}
+
+.contact-details p {
+    margin: 4px 0;
+}
+
+.error-message {
+    color: #a02e2e;
+}
