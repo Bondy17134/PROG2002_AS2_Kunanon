@@ -57,7 +57,7 @@ router.get("/", (req, res) => {
     }
 
     if(category){
-        if(isNaN(catgory)){
+        if(isNaN(category)){
             return res.status(400).send({
                 error: "Category must be a number"
             });
@@ -65,6 +65,8 @@ router.get("/", (req, res) => {
         sql += " AND e.category_id = ?";
         value.push(category);
     }
+
+    sql += " ORDER BY e.event_date ASC";
 
     connection.query(sql, (err, records) => {
         if (err) {
@@ -76,8 +78,6 @@ router.get("/", (req, res) => {
         res.status(200).send(records);
     });
 });
-
-module.exports = router;
 
 /*
     GET /api/events/:id
@@ -136,3 +136,5 @@ router.get("/events/:id", (req, res) => {
         res.status(200).send(records[0]);
     });
 });
+
+module.exports = router;
