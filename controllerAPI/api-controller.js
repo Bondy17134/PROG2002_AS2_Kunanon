@@ -39,15 +39,100 @@ router.get("/", (req, res) => {
         WHERE e.event_date >= NOW()
     `;
 
-    connection.query(sql, (err, records, fields) => {
+    var value = [];
+
+    if(search){
+        sql += `
+            AND (
+                e.title LIKE ?
+                OR e.description LIKE ?
+                OR e.location LIKE ?
+                OR ch.name LIKE ?
+            )
+        `
+
+        var searchValue = `%${search}%`;
+
+        value.push(searchValue, searchValue, searchValue, searchValue);
+    }
+
+    if(category){
+        if(isNaN(catgory)){
+            return res.status(400).send({
+                error: "Category must be a number"
+            });
+        }
+        sql += " AND e.category_id = ?";
+        value.push(category);
+    }
+
+    connection.query(sql, (err, records) => {
         if (err) {
             console.error("Error while retrieving events:", err);
             return res.status(500).send({
                 error: "Unable to retrieve events"
             });
         }
-        res.send(records);
+        res.status(200).send(records);
     });
-})
+});
 
 module.exports = router;
+
+/*
+    GET /api/events/:id
+
+    Returns detailed information for one event.    
+*/
+router.get("/events/:id", (req, res) => {
+    var eventId = req.params.id;
+
+    if(isNaN(eventId)){
+        return res.status(400).send({
+            error: "Event ID must be a number"
+        });
+    }
+
+    var sql = `
+        SELECT
+            e.event_id,
+            e.title,
+            e.description,
+            e.event_date,
+            e.location,
+            e.capacity,
+            c.category_id,
+            c.name AS category,
+            ch.charity_id,
+            ch.name AS charity,
+            ch.description AS charity_description,
+            ch.contact_email,
+            ch.website,
+            CONCAT(u.first_name, ' ', u.last_name) AS organiser
+        FROM events e
+        JOIN categories c
+            ON e.category_id = c.category_id
+        JOIN charities ch
+            ON e.charity_id = ch.charity_id
+        JOIN users u
+            ON e.organiser_id = u.user_id
+        WHERE e.event_id = ?
+    `;
+
+    connection.query(sql, [eventId], (err, records) => {
+        if(err) {
+            console.error("Error retrieving event:", err);
+
+            return res.status(500).send({
+                error: "Unable to retrieve event"
+            });
+        }
+
+        if(records.length === 0){
+            return res.status(404).send({
+                error: "Event not found"
+            });
+        }
+        res.status(200).send(records[0]);
+    });
+});
