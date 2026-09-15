@@ -103,3 +103,18 @@ a {
         ),
         url("../images/hero.jpg") center/cover;
 }
+
+.hero-content {
+    width: 100%;
+    max-width: 680px;
+}
+
+.eyebrown,
+.section-label {
+    margin-bottom: 12px;
+    color: #dbe9c7;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
