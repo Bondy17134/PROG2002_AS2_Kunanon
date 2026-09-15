@@ -11,3 +11,11 @@
     --radius-large: 32px;
     --radius-medium: 20px;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
