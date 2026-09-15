@@ -267,3 +267,12 @@ a {
     color: var(--white);
     background: linear-gradient(135deg, #789b68, #2d5838);
 }
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 60px 8%;
+    color: rgba(255, 255, 255, 0.85);
+    background: var(--green-dark);
+}
