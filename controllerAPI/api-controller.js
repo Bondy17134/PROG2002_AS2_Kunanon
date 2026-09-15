@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var connection = require()("../event_db");
+var connection = require("../event_db");
 
 /*
     GET /api/events
