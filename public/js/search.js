@@ -172,5 +172,22 @@ function showError(message){
     searchMessage.classList.add("error-message");
 }
 
+/*
+    Submit the form and call the API
+*/
+searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    searchEvents();
+});
+
+/*
+    Reset all inputs using basic DOM
+*/
+clearButton.addEventListener("click", () => {
+    searchForm.requestFullscreen();
+    searchEvents();
+    locationInput.focus();
+});
+
 loadCategories();
 searchEvents();
