@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 var searchForm = document.getElementById("searchForm");
 var dateInput = document.getElementById("event-date");
 var locationInput = document.getElementById("event-location");
@@ -36,3 +38,56 @@ function loadCategories() {
             );
         });
 }
+
+/*
+    Build the API URL using the selected filters.
+*/
+function searchEvents() {
+    var parameters = new URLSearchParams();
+
+    var selectedDate = dateInput.value;
+    var selectedLocation = locationInput.value.trim();
+    var selectedCategory = categorySelect.value;
+
+    if(selectedDate) {
+        parameters.append("date", selectedDate);
+    }
+
+    if(selectedLocation) {
+        parameters.append("location", selectedLocation);
+    }
+
+    if(selectedCategory) {
+        parameters.append("category", selectedCategory);
+    }
+
+    var apiUrl = "/api/events";
+
+    if(parameters.toString()) {
+        apiUrl += `?${parameters.toString()}`;
+    }
+
+    searchMessage.textContent = "Searching for events...";
+    searchMessage.classList.remove("error-message");
+    searchResults.innerHTML = "";
+
+    fetch(apiUrl)
+        .then((response) => {
+            if(!response.ok){
+                return response.json().then((data) => {
+                    throw new Error(
+                        data.error || "Unable to retrieve events."
+                    );
+                });
+            }
+            return response.json();
+        })
+        .then((events) => {
+            displayEvents(events);
+        })
+        .catch((error) => {
+            console.error("Search error:", error);
+            showError(error.message);
+        });
+}
+
