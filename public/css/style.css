@@ -423,3 +423,9 @@ a {
 .primary-search-button:hover {
     background: var(--green-dark);
 }
+
+.clear-button {
+    border: 1px solid #ccd7c6;
+    color: var(--green-dark);
+    background: var(--white);
+}
