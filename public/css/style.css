@@ -339,3 +339,15 @@ a {
     line-height: 1;
     letter-spacing: -0.04em;
 }
+
+.inner.hero p:not(.eyebrow) {
+    max-width: 650px;
+    margin: auto;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.search-section {
+    min-height: 600px;
+    padding: 0 7% 100px;
+    background: var(--green-pale);
+}
