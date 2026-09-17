@@ -91,3 +91,5 @@ function searchEvents() {
         });
 }
 
+loadCategories();
+searchEvents();
