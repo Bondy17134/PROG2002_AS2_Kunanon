@@ -91,5 +91,70 @@ function searchEvents() {
         });
 }
 
+/*
+    Display the event results using DOM manipulation.
+*/
+function displayEvents(events){
+    searchResults.innerHTML = "";
+
+    if(events.length === 0) {
+        searchMessage.textContent = "No events matched your selected filters.";
+        return;
+    }
+
+    searchMessage.textContent = 
+        `${events.length} matching event${events.length === 1 ? "" : "s"} found`;
+
+    events.forEach((event) => {
+        var card = createEventCard(event);
+        searchResults.appendChild(card);
+    });
+}
+
+function createEventCard(event){
+    var card = document.createElement("article");
+    card.className = "event-card";
+
+    var visual = document.createElement("div");
+    visual.className = "event-card-visual";
+
+    var category = document.createElement("span");
+    category.className = "category-badge";
+    category.textContent = event.category;
+
+    var content = document.createElement("div");
+    content.className = "event-card-content";
+    
+    var title = document.createElement("h3");
+    title.textContent = event.title;
+
+    var date = document.createElement("p");
+    date.className = "event-meta";
+    date.textContent = `Date: ${formatDate(event.date)}`;
+
+    var location = document.createElement("p");
+    location.className = "event-meta";
+    location.textContent = `Location: ${event.location}`;
+    
+    var charity = document.createElement("p");
+    charity.className = "event-meta";
+    charity.textContent = `Organised by ${event.charity}`;
+
+    var link = document.createElement("a");
+    link.className = "event-link";
+    link.href = `/event?id=${encodeURIComponent(event.event_id)}`;
+
+    content.appendChild(title);
+    content.appendChild(date);
+    content.appendChild(location);
+    content.appendChild(charity);
+    content.appendChild(link);
+
+    card.appendChild(visual);
+    card.appendChild(content);
+
+    return card;
+}
+
 loadCategories();
 searchEvents();
