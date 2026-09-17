@@ -156,5 +156,15 @@ function createEventCard(event){
     return card;
 }
 
+function formatDate(dateValue){
+    var date = new Date(dateValue);
+
+    return date.toLocaleDateString("en-AU", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+}
+
 loadCategories();
 searchEvents();
