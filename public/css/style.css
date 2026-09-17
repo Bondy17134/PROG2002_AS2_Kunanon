@@ -429,3 +429,14 @@ a {
     color: var(--green-dark);
     background: var(--white);
 }
+
+.result-heading {
+    max-width: 1180px;
+    margin: auto;
+}
+
+.result-heading h2 {
+    margin: 0 0 25px;
+    color: var(--green-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
