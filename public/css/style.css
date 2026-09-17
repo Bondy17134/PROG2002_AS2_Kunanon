@@ -317,3 +317,25 @@ a {
 .error-message {
     color: #a02e2e;
 }
+
+/* Search page */
+
+.inner-hero {
+    padding: 165px 7% 85px;
+    color: var(--white);
+    text-align: center;
+    background: 
+        radial-gradient(
+            circle at top right,
+            rgba(174, 204, 140, 0.35),
+            transparent 35%
+        ),
+        var(--green-dark);
+}
+
+.inner-hero h1 {
+    margin: 0 auto 18px;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
