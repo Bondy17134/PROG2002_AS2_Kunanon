@@ -166,5 +166,11 @@ function formatDate(dateValue){
     });
 }
 
+function showError(message){
+    searchResults.innerHTML = "";
+    searchMessage.textContent = message;
+    searchMessage.classList.add("error-message");
+}
+
 loadCategories();
 searchEvents();
