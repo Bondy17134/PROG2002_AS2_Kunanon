@@ -340,7 +340,7 @@ a {
     letter-spacing: -0.04em;
 }
 
-.inner.hero p:not(.eyebrow) {
+.inner-hero p:not(.eyebrow) {
     max-width: 650px;
     margin: auto;
     color: rgba(255, 255, 255, 0.82);
@@ -350,4 +350,21 @@ a {
     min-height: 600px;
     padding: 0 7% 100px;
     background: var(--green-pale);
+}
+
+.filter-form {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 16px;
+    align-items: end;
+    max-width: 1180px;
+    margin: 0 auto 80px;
+    padding: 24px;
+    border: 1px solid rgb(69, 107, 60, 0.12);
+    border-radius: 24px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transform: translateY(-35px);
 }
