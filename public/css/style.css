@@ -413,3 +413,9 @@ a {
     font-weight: 800;
     cursor: pointer;
 }
+
+.primary-search-button {
+    border: 1px solid var(--green);
+    color: var(--white);
+    background: var(--green);
+}
