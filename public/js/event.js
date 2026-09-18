@@ -87,3 +87,10 @@ function showError(message) {
     eventStatus.textContent = message;
     eventStatus.classList.add("error-message");
 }
+
+/*
+    Registration button (out of scope of AS2)
+*/
+registerButton.addEventListener("click", () => {
+    alert("This feature is currently under construction");
+});
