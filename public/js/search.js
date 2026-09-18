@@ -1,10 +1,8 @@
-const { response } = require("express");
-
-var searchForm = document.getElementById("searchForm");
+var searchForm = document.getElementById("search-form");
 var dateInput = document.getElementById("event-date");
 var locationInput = document.getElementById("event-location");
 var categorySelect = document.getElementById("event-category");
-var clearButton = document.getElementById("clear-filter");
+var clearButton = document.getElementById("clear-filters");
 var searchResults = document.getElementById("search-results");
 var searchMessage = document.getElementById("search-message");
 
@@ -13,7 +11,7 @@ var searchMessage = document.getElementById("search-message");
     to the category dropdown.
 */
 function loadCategories() {
-    fetch("/api/catgories")
+    fetch("/api/categories")
         .then((response) => {
             if(!response.ok){
                 throw new Error("Unable to retrieve categories.");
@@ -130,7 +128,7 @@ function createEventCard(event){
 
     var date = document.createElement("p");
     date.className = "event-meta";
-    date.textContent = `Date: ${formatDate(event.date)}`;
+    date.textContent = `Date: ${formatDate(event.event_date)}`;
 
     var location = document.createElement("p");
     location.className = "event-meta";
@@ -184,7 +182,7 @@ searchForm.addEventListener("submit", (event) => {
     Reset all inputs using basic DOM
 */
 clearButton.addEventListener("click", () => {
-    searchForm.requestFullscreen();
+    searchForm.reset();
     searchEvents();
     locationInput.focus();
 });
