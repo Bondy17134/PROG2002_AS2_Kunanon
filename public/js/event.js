@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 var eventStatus = document.getElementById("event-status");
 var eventDetail = document.getElementById("event-detail");
 var registerButton = document.getElementById("register-button");
@@ -21,5 +23,21 @@ if(!eventId || isNaN(eventId)) {
     Retrieve the selected event from the API
 */
 function loadEvent(id) {
-    
+    fetch(`/api/events/${encodeURIComponent(id)}`)
+        .then((response) => {
+            if(!response.ok) {
+                return response.json().then((data) => {
+                    throw new Error(
+                        data.error || "Unable to retrieve event details."
+                    );
+                });
+            }
+        })
+        .then((event) => {
+            displayEvents(event);
+        })
+        .catch((error) => {
+            console.error("Error fetching event:", error);
+            showError(error.message);
+        })
 }
