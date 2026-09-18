@@ -25,4 +25,103 @@
                 <a class="nav-button" href="/search">Explore Event</a>
             </nav>
     </header>
+
+    <main>
+        <section class="inner-hero event-page-heading">
+            <p class="eyebrow">Make a meaning ful difference</p>
+            <h1>Event details</h1>
+            <p>
+                Learn more about the event and the organisation behind it.
+            </p>
+        </section>
+
+        <section class="event-detail-section">
+            <a class="back-link" href="/search"><- Back to events</a>
+
+            <p class="status-message" id="event-status" role="status">
+                Loading event details...
+            </p>
+
+            <article class="event-detail-card" id="event-detail" hidden>
+                <div class="event-detial-visual">
+                    <span class="category-badge" id="detail-category"></span>
+                </div>
+
+                <div class="event-detail-content">
+                    <p class="section-label">Charity event</p>
+
+                    <h2 id="detail-title"></h2>
+
+                    <p class="event-description" id="detail-description"></p>
+                </div>
+
+                <div class="event-information">
+                    <div class="information-item">
+                        <span class="information-label">Date and time</span>
+                        <strong id="detail-date"></strong>
+                    </div>
+
+                    <div class="information-item">
+                        <span class="information-label">Location</span>
+                        <strong id="detail-location"></strong>
+                    </div>
+
+                    <div class="information-item">
+                        <span class="information-label">Capacity</span>
+                        <strong id="detail-capacity"></strong>
+                    </div>
+
+                    <div class="information-item">
+                        <span class="information-label">Organiser</span>
+                        <strong id="detail-organiser"></strong>
+                    </div>
+                </div>
+
+                <section class="charity-information">
+                    <p class="section-label">About the charity</p>
+
+                    <h3 id="detail-charity"></h3>
+
+                    <p id="detail-charity-description"></p>
+
+                    <div class="charity-contact">
+                        <a id="detail-email"></a>
+
+                        <a
+                            id="detail-website"
+                            target="_blank"
+                            rel="noopener noreferer"
+                        >
+                            Visit Charity Websire
+                        </a>
+                    </div>
+                </section>
+
+                <button
+                    class="register-button"
+                    id="register-button"
+                    type="button"
+                >
+                    Register this event
+                </button>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer" id-contact>
+            <div>
+                <h2>Charity Event Junction</h2>
+
+                <p>
+                    Connecting people with causes that matter.
+                </p>
+            </div>
+
+            <div class="contact-details">
+                <p>Email:<strong>hello@charityeventjunction.com.au</strong></p>
+                <p><strong>Phone:</strong>(07) 555 0142</p>
+                <p><strong>Location:</strong>Gold Coast, Queensland</p>
+            </div>
+        </footer>
 </body>
+</html>
