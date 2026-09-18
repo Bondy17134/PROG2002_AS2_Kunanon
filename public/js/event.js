@@ -41,3 +41,7 @@ function loadEvent(id) {
             showError(error.message);
         })
 }
+
+/*
+    Display the selected event using DOM manipulation
+*/
