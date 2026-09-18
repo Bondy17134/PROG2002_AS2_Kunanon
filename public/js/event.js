@@ -45,3 +45,26 @@ function loadEvent(id) {
 /*
     Display the selected event using DOM manipulation
 */
+function displayEvent(event) {
+    document.title = `${event.title} | Charity Event Junction`;
+
+    document.getElementById("detail-category").textContent = event.category;
+    document.getElementById("detail-title").textContent = event.title;
+    document.getElementById("detail-description").textContent = event.description;
+    document.getElementById("detail-date").textContent = event.event_date;
+    document.getElementById("detail-location").textContent = event.location;
+    document.getElementById("detail-capacity").textContent = `${event.capacity} attendees`;
+    document.getElementById("detail-organiser").textContent = event.organiser;
+    document.getElementById("detail-charity").textContent = event.charity;
+    document.getElementById("detail-charity-description").textContent = event.charity_description;
+
+    var emailLink = document.getElementById("detail-email");
+    emailLink.href = `mailto:${event.contact_email}`;
+    emailLink.textContent = event.contact_emai;
+
+    var websiteLink = document.getElementById("detail-website");
+    websiteLink.href = event.website;
+
+    eventStatus.textContent = "";
+    eventDetail.hidden = false;
+}
