@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 var eventStatus = document.getElementById("event-status");
 var eventDetail = document.getElementById("event-detail");
 var registerButton = document.getElementById("register-button");
@@ -16,7 +14,7 @@ var eventId = urlParameters.get("id");
 if(!eventId || isNaN(eventId)) {
     showError("A valid event ID was not provided.");
 } else {
-    FontFaceSetLoadEvent(eventId);
+    loadEvent(eventId);
 }
 
 /*
@@ -32,9 +30,10 @@ function loadEvent(id) {
                     );
                 });
             }
+            return response.json();
         })
         .then((event) => {
-            displayEvents(event);
+            displayEvent(event);
         })
         .catch((error) => {
             console.error("Error fetching event:", error);
@@ -60,7 +59,7 @@ function displayEvent(event) {
 
     var emailLink = document.getElementById("detail-email");
     emailLink.href = `mailto:${event.contact_email}`;
-    emailLink.textContent = event.contact_emai;
+    emailLink.textContent = event.contact_email;
 
     var websiteLink = document.getElementById("detail-website");
     websiteLink.href = event.website;
