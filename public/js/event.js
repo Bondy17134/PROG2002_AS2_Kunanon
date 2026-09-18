@@ -68,3 +68,22 @@ function displayEvent(event) {
     eventStatus.textContent = "";
     eventDetail.hidden = false;
 }
+
+function formatDateTime(dateValue) {
+    var date = new Date(dateValue);
+
+    return date.toLocaleString("en-AU", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+    });
+}
+
+function showError(message) {
+    eventDetail.hidden = true;
+    eventStatus.textContent = message;
+    eventStatus.classList.add("error-message");
+}
