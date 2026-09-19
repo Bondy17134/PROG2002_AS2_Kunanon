@@ -480,3 +480,57 @@ a {
     background: var(--white);
     box-shadow: var(--shadow);
 }
+
+.event-detail-visual {
+    display: flex;
+    align-items: flex-end;
+    min-height: 630px;
+    padding: 35px;
+    background: 
+    radial-gradient(
+        circle at top left,
+        rgba(216, 235, 188, 0.5),
+        transparent 35%
+    ),
+    linear-gradient(145deg, #789b68, #25452c);
+}
+
+.event-detail-content {
+    padding: 55px;
+}
+
+.event-detail-content h2 {
+    margin: 0 0 20px;
+    color: var(--green-dark);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.event-description {
+    color: var(--text-soft);
+    font-size: 1.05rem;
+}
+
+.event-information {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 32px 0;
+}
+
+.information-item {
+    padding: 18px;
+    border-radius: 14px;
+    background: var(--green-pale);
+}
+
+.information-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-soft);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
