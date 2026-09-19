@@ -465,7 +465,7 @@ a {
     font-weight: 800;
 }
 
-.event-detail-section > .status.message {
+.event-detail-section > .status-message {
     max-width: 1100px;
     margin: 20px auto;
 }
@@ -565,4 +565,17 @@ a {
 .charity-contact a {
     color: var(--green);
     font-weight: 800;
+}
+
+.register-button {
+    width: 100%;
+    margin-top: 35px;
+    padding: 16px 25px;
+    border: 0;
+    border-radius: 999px;
+    color: var(--white);
+    background: var(--green);
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
 }
