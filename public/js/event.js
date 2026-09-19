@@ -50,7 +50,7 @@ function displayEvent(event) {
     document.getElementById("detail-category").textContent = event.category;
     document.getElementById("detail-title").textContent = event.title;
     document.getElementById("detail-description").textContent = event.description;
-    document.getElementById("detail-date").textContent = event.event_date;
+    document.getElementById("detail-date").textContent = formatDateTime(event.event_date);
     document.getElementById("detail-location").textContent = event.location;
     document.getElementById("detail-capacity").textContent = `${event.capacity} attendees`;
     document.getElementById("detail-organiser").textContent = event.organiser;
@@ -86,6 +86,7 @@ function showError(message) {
     eventStatus.textContent = message;
     eventStatus.classList.add("error-message");
 }
+
 
 /*
     Registration button (out of scope of AS2)
